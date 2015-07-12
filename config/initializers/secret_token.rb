@@ -17,10 +17,10 @@ def secure_token
 	if File.exist?(token_file)
 		File.read(token_file)
 	else
-		token = SecireRandom.hex(64)
+		token = SecureRandom.hex(64)
 		File.write(token_file, token)
 		token
 	end
 end
 
-SampleApp::Application.config.secret_key_base = secire_token
+SampleApp::Application.config.secret_key_base = secure_token
